@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Eu te amo Kathleen</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .frase {
+      position: absolute;
+      animation: flutuar 10s linear infinite;
+      font-size: 2rem;
+      opacity: 0.8;
+    }
+    @keyframes flutuar {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function criarFrase() {
+      const frase = document.createElement('div');
+      frase.classList.add('frase');
+      frase.innerText = 'eu te amo Kathleen';
+      frase.style.left = Math.random() * 100 + 'vw';
+      frase.style.top = Math.random() * 100 + 'vh';
+      frase.style.animationDuration = (5 + Math.random() * 5) + 's';
+      frase.style.fontSize = (1 + Math.random() * 2) + 'rem';
+      document.body.appendChild(frase);
+      setTimeout(() => frase.remove(), 10000);
+    }
+    setInterval(criarFrase, 300);
+  </script>
+</body>
+</html>
